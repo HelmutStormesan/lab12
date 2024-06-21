@@ -1,0 +1,33 @@
+<!-- Profiles#show -->
+<div class="container mt-4">
+  <h1>User Profile</h1>
+  <div class="card shadow mb-4">
+    <div class="card-header">
+      <h2><%= @user.name %></h2>
+      <p><%= @user.email %></p>
+    </div>
+    <div class="card-body">
+      <h3>Posts</h3>
+      <% if @user.posts.any? %>
+        <ul class="list-group list-group-flush">
+          <% @user.posts.each do |post| %>
+            <li class="list-group-item"><%= post.title %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No posts available.</p>
+      <% end %>
+
+      <h3>Comments</h3>
+      <% if @user.comments.any? %>
+      <ul class="list-group list-group-flush">
+      <% @user.comments.each do |comment| %>
+        <li class="list-group-item"><%= comment.body %></li> <!-- Changed 'content' to 'body' -->
+      <% end %>
+    </ul>    
+      <% else %>
+        <p>No comments available.</p>
+      <% end %>
+    </div>
+  </div>
+</div>
